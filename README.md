@@ -1,66 +1,54 @@
-## Foundry
+# 📦 Base Project Day 1 – Counter Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This is a simple **Solidity counter contract** deployed to the **Base Sepolia testnet** as part of the Day 1 assignment of the Base Bootcamp.
 
-Foundry consists of:
+---
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## 🛠 Deployment Details
 
-## Documentation
+- **Deployer Address:**  
+  `0xCd123a950B03401937906fC53C49CF65B4868ed8`
 
-https://book.getfoundry.sh/
+- **Contract Address (Base Sepolia):**  
+  `0x08Ad79edAb7B5F0E4dd9B8fE39979d05e04F74d2`
 
-## Usage
+- **Transaction Hash:**  
+  [`0xff721260e6500527454ee4653d082c135007e35d59dcf0a51e05ce488978b768`](https://sepolia.basescan.org/tx/0xff721260e6500527454ee4653d082c135007e35d59dcf0a51e05ce488978b768)
 
-### Build
+---
 
-```shell
-$ forge build
-```
+## ⚙️ Tooling Used
 
-### Test
+- **Framework:** [Foundry](https://book.getfoundry.sh/)
+- **RPC Provider:** [Alchemy Base Sepolia Endpoint](https://www.alchemy.com/faucets/base-sepolia)
+- **Network:** `Base Sepolia Testnet`
 
-```shell
-$ forge test
-```
+---
 
-### Format
+## 📝 Notes
 
-```shell
-$ forge fmt
-```
+- ✅ Contract compiled and deployed successfully on first attempt.
+- 🔍 Verified using Basescan for deployment confirmation.
 
-### Gas Snapshots
+## 🧰 Installation
 
-```shell
-$ forge snapshot
-```
+First, install [Foundry](https://book.getfoundry.sh/getting-started/installation):
 
-### Anvil
+in your bash:
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 
-```shell
-$ anvil
-```
+forge install
 
-### Deploy
+Then, Set your RPC and private key as environment variables in the root create .env file:
+BASE_SEPOLIA_RPC_URL="https://base-sepolia.g.alchemy.com/v2/YOUR_API_KEY"
+PRIVATE_KEY="your_private_key_here"
+BASESCAN_API_KEY ="YOUR_KEY_HERE"
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+## 📦 Compile the Contract
 
-### Cast
+forge build
 
-```shell
-$ cast <subcommand>
-```
+## 🚀 Deploy the Contract
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+forge create src/Counter.sol:Counter --rpc-url $BASE_SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast
